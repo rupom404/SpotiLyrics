@@ -1,0 +1,179 @@
+#bl-overlay-panel {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  width: 460px;
+  height: calc(100vh - 180px);
+  background: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(36px) saturate(190%);
+  -webkit-backdrop-filter: blur(36px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  z-index: 99999;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Kalpurush", "Noto Sans Bengali", sans-serif;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transition: height 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#bl-overlay-panel.bl-minimized {
+  height: 65px;
+  overflow: hidden;
+}
+
+.bl-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: grab;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.bl-header:active {
+  cursor: grabbing;
+}
+
+.bl-drag-handle {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.2rem;
+}
+
+.bl-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.bl-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bl-artist {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bl-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bl-offset-val {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 28px;
+  text-align: center;
+}
+
+.bl-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.bl-btn-small {
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  width: auto;
+  height: 24px;
+}
+
+.bl-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.bl-status {
+  text-align: center;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 30px 10px;
+}
+
+.bl-lyrics-list {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.bl-lyrics-list::-webkit-scrollbar {
+  display: none;
+}
+
+.bl-line {
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.25);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+  cursor: pointer;
+}
+
+.bl-line.bl-active-line {
+  transform: scale(1.05);
+}
+
+.bl-word {
+  display: inline;
+  --progress: 0%;
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff var(--progress, 0%),
+    rgba(255, 255, 255, 0.28) var(--progress, 0%),
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: filter 0.15s ease;
+}
+
+.bl-line.bl-active-line .bl-word {
+  background-image: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff var(--progress, 0%),
+    rgba(255, 255, 255, 0.4) var(--progress, 0%),
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+
+.bl-line.bl-active-line .bl-word.bl-singing {
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.85));
+}
+
+body.bl-no-select {
+  user-select: none !important;
+}

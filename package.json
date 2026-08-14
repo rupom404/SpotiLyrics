@@ -1,0 +1,21 @@
+{
+  "name": "spotify-braccato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@braccato/core": "^1.1.0",
+    "@braccato/parsers": "^0.2.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.7.1",
+    "vite": "^8.2.1"
+  }
+}

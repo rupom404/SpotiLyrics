@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify BetterLyrics (Braccato)",
+  "version": "1.1.0",
+  "description": "Word-by-word draggable synchronized karaoke lyrics using the Braccato engine.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "*://open.spotify.com/*",
+    "*://lrclib.net/*",
+    "*://lyrics-api.boidu.dev/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://open.spotify.com/*"],
+      "js": ["dist/content.bundle.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
