@@ -63,7 +63,7 @@
 
 1. **Clone the Repository**
    ```bash
-   git clone [https://github.com/rupom404/SpotiLyrics.git](https://github.com/rupom404/SpotiLyrics.git)
+   git clone https://github.com/rupom404/SpotiLyrics.git
    cd SpotiLyrics
    ```
 
